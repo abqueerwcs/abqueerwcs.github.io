@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ABQueer WCS — Albuquerque Queer West Coast Swing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ABQueer WCS brings the joy of West Coast Swing to Albuquerque’s queer community in a safe, welcoming space." />
+
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --card: #1a1a24;
+      --text: #f4f4f6;
+      --muted: #b6b6c6;
+      --accent: #ff6ec7;
+      --accent2: #6ee7ff;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1b1b2a, #0f0f14);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid #333;
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      margin-top: 6rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <strong>ABQueer WCS</strong>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Events</a>
+    <a href="#">New Dancers</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div>
+      <h1>
+        Albuquerque’s <span class="gradient">Queer</span><br/>
+        West Coast Swing Community
+      </h1>
+
+      <p>
+        ABQueer WCS brings the joy of West Coast Swing to Albuquerque’s queer
+        community — and the joy of queerness to Albuquerque’s West Coast Swing
+        scene. We create safe, welcoming, affirming spaces to dance, connect,
+        and belong.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="#">View Events</a>
+        <a class="btn secondary" href="#">Join the Community</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>What is West Coast Swing?</h3>
+      <p>
+        West Coast Swing is a modern, creative partner dance danced to blues,
+        pop, funk, R&B, and more. It’s expressive, playful, and welcoming to all
+        experience levels — no partner required.
+      </p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Our Values</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🌈 Queer-Centered</h3>
+        <p>
+          Our events are for people who identify as queer, those who identify
+          with queer challenges, their loved ones, and community supporters.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🤝 Consent & Safety</h3>
+        <p>
+          We prioritize consent, respect, and care so everyone feels safe,
+          empowered, and comfortable on and off the dance floor.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💃 Accessible Fun</h3>
+        <p>
+          No experience required. Come as you are, learn at your pace, and dance
+          with people who celebrate you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Ready to Dance?</h2>
+      <p>
+        Whether you’re brand new or a seasoned dancer, ABQueer WCS welcomes you.
+        Check out upcoming events, bring a friend, and join us on the floor.
+      </p>
+
+      <div class="buttons" style="margin-top:1rem;">
+        <a class="btn" href="#">Upcoming Events</a>
+        <a class="btn secondary" href="#">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© ABQueer WCS — Albuquerque Queer West Coast Swing</p>
+</footer>
+
+</body>
+</html>
+
