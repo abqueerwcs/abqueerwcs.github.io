@@ -319,3 +319,8 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.parking-map {
+  width: 100%;
+  border-radius: var(--radius);
+}
