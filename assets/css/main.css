@@ -342,3 +342,18 @@ footer {
   filter: brightness(0) saturate(100%) invert(70%);
   filter: drop-shadow(0 0 6px var(--accent));
 }
+
+.site-logo {
+  height: 40px;         /* mobile-first default */
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .site-logo {
+    height: 60px;
+  }
+}
+
+.logo-link {
+  display: inline-block;
+}
