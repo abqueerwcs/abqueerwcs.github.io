@@ -357,3 +357,31 @@ footer {
 .logo-link {
   display: inline-block;
 }
+
+.mailchimp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* tablet+ layout */
+@media (min-width: 600px) {
+  .mailchimp-form {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .mailchimp-form input {
+    flex: 1 1 30%;
+    min-width: 140px;
+  }
+
+  .mailchimp-form input[name="EMAIL"] {
+    flex: 2 1 40%;
+  }
+
+  .mailchimp-form button {
+    flex: 1 1 100%;
+  }
+}
