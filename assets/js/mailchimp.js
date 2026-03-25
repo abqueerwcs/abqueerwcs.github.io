@@ -1,20 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("mailchimp-form");
   const message = document.getElementById("form-message");
-      console.log(form);
 
-    if (!form) {
-
-      console.log("Test2");
-    return};
-      console.log("Test3");
+    if (!form) {return};
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     message.textContent = "Submitting...";
     message.className = "form-message";
-      console.log("Test");
 
     const formData = new FormData(form);
 
