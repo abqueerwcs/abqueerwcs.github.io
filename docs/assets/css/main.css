@@ -471,3 +471,70 @@ footer {
   transform: translateY(-2px);
   transition: transform 0.2s ease;
 }
+
+.member-photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* credit text */
+.photo-credit {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  text-align: center;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .member-photo-wrapper {
+    align-items: flex-start;
+  }
+
+  .photo-credit {
+    text-align: left;
+  }
+}
+
+.board-member {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Assign areas */
+.member-info h2 {
+  grid-area: name;
+}
+
+.member-role {
+  grid-area: role;
+}
+
+.member-photo-wrapper {
+  grid-area: photo;
+}
+
+.member-bio {
+  grid-area: bio;
+}
+
+/* Mobile layout */
+.board-member {
+  grid-template-areas:
+    "name"
+    "role"
+    "photo"
+    "bio";
+}
+
+@media (min-width: 768px) {
+  .board-member {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+      "photo name"
+      "photo role"
+      "photo bio";
+    align-items: center;
+  }
+}
