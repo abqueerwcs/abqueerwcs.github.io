@@ -100,12 +100,12 @@
       <form
         action="https://gmail.us13.list-manage.com/subscribe/post?u=f6527f2fb51a38c4f69556c54&amp;id=02b9744619&amp;f_id=00f756e1f0"
         method="post"
-        target="_blank"
         class="mailchimp-form"
+        id="mailchimp-form"
       >
 
-        <input type="text" name="FNAME" placeholder="First name">
-        <input type="text" name="LNAME" placeholder="Last name">
+        <input type="text" name="FNAME" placeholder="First name" required>
+        <input type="text" name="LNAME" placeholder="Last name" required>
         <input
           type="email"
           name="EMAIL"
@@ -122,6 +122,7 @@
           Subscribe
         </button>
       </form>
+      <div id="form-message" class="form-message" aria-live="polite"></div>
     </div>
 
   </section>
@@ -131,5 +132,6 @@
 
 
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/mailchimp.js"></script>
 </body>
 </html>

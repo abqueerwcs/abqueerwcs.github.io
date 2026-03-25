@@ -385,3 +385,26 @@ footer {
     flex: 1 1 100%;
   }
 }
+
+.form-message {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.form-message.success {
+  color: #4ade80; /* green */
+  animation: fadeIn 0.3s ease;
+}
+
+.form-message.error {
+  color: #f87171; /* red */
+}
+
+.form-message.success {
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
