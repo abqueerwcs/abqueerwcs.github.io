@@ -3,16 +3,51 @@ layout: base.njk
 title: Home
 ---
 
-<section class="hero">
-  <h1>
-    Albuquerque’s <span class="gradient">Queer</span><br>
-    West Coast Swing Community
-  </h1>
+<section class="container">
 
-  <p>
+  <!-- HERO / CAROUSEL -->
+  <div class="carousel card">
+    <div class="carousel-track" id="carousel-track">
+      {% for item in carousel %}
+        <img src="{{ item.image }}" alt="{{ item.alt }}">
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <section>
+    <h2 class="gradient">Why Choose Us?</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Inclusive Community</h3>
+        <p>A welcoming space centered on queer joy and connection.</p>
+      </div>
+
+      <div class="card">
+        <h3>Beginner Friendly</h3>
+        <p>No experience or partner required — just show up and dance.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fun & Social</h3>
+        <p>Meet new people, build friendships, and enjoy great music.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section>
+    <h2 class="gradient">Our Mission</h2>
+
+    <div class="card">
+      <p>
     Albuquerque Queer West Coast Swing, Inc. (“ABQueer WCS”) is dedicated to bringing the joy of West Coast Swing to the queer community of Albuquerque, and the joy of queerness to the West Coast Swing community of Albuquerque. ABQueer WCS is committed to providing a safe, welcoming environment for everyone.
-    <br>
-
+    </p>
+    <p>
     Events hosted and operated by ABQueer WCS are intended for people who identify as queer, identify with the challenges queer people face in society, their loved ones, and supporters of the queer community.
   </p>
+    </div>
+  </section>
+
 </section>
