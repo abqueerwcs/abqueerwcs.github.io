@@ -538,3 +538,48 @@ footer {
     align-items: center;
   }
 }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* each FAQ card */
+.faq-item {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* summary (question row) */
+.faq-item summary {
+  list-style: none;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* remove default arrow */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* icon */
+.faq-icon {
+  transition: transform 0.2s ease;
+}
+
+/* rotate icon when open */
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* answer text */
+.faq-item p, .faq-item li, .faq-item ul {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
