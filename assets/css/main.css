@@ -583,3 +583,25 @@ footer {
   margin-top: 0.75rem;
   color: var(--muted);
 }
+
+.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-links {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.faq-links li {
+  margin-bottom: 0.3rem;
+}
+
+.faq-links a {
+  color: var(--accent2);
+  text-decoration: underline;
+}
+
+.faq-links a:hover {
+  opacity: 0.8;
+}

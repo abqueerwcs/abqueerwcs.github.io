@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Do I need a partner?",
+    "answer": "No partner is required! West Coast Swing is a social dance, and we rotate partners frequently."
+  },
+  {
+    "question": "Do I need to know West Coast Swing?",
+    "answer": "Not at all! We welcome beginners and generally have introductory lessons before dances."
+  },
+  {
+    "question": "What should I wear?",
+    "answer": "Wear something comfortable you can move in. Smooth-soled shoes are recommended."
+  },
+  {
+    "question": "Where else can I dance?",
+    "answer": "Here are some great places to dance in Albuquerque:",
+    "links": [
+      {
+        "name": "SouthWesties",
+        "url": "https://southwestiesabq.com/"
+      },
+      {
+        "name": "Santa Fe Swing",
+        "url": ""
+      },{
+        "name": "Wild Bunch Square Dancing",
+        "url": ""
+      },{
+        "name": "TODO: Lacie's Tango Group",
+        "url": ""
+      }
+    ]
+  }
+]
