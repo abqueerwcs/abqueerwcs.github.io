@@ -3,7 +3,9 @@
     "title": "Pi Day WCS Dance",
     "date": "2026-03-14",
     "description": [
-        "Join us for a fun night of West Coast Swing! Beginner lesson included."
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is Pi Day!"
     ],
     "time": "6:30 PM",
     "location": "Peace Love Space",
@@ -16,7 +18,9 @@
     "title": "Earth Day Queer WCS Dance",
     "date": "2026-04-11",
     "description": [
-        "Join us for a fun night of West Coast Swing! Beginner lesson included."
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is Earth Day!"
     ],
     "time": "6:30 PM",
     "location": "Peace Love Space",
@@ -24,7 +28,10 @@
   },{
     "title": "May Queer WCS Social Dance",
     "date": "2026-05-09",
-    "description": ["Join us for a fun night of West Coast Swing! Beginner lesson included."
+    "description": [
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is Hot Summer Gays!"
     ],
     "time": "6:30 PM",
     "location": "Peace Love Space"
