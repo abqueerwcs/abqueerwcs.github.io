@@ -23,7 +23,9 @@ permalink: /events/past/
                 {{ event.date | date("MMMM d, yyyy") }}
               </p>
 
-              <p>{{ event.description }}</p>
+              {% for paragraph in event.description %}
+                <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
+              {% endfor %}
             </div>
 
             {% if event.image %}

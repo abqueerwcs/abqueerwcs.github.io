@@ -41,7 +41,9 @@ permalink: /events/
                 </p>
               {% endif %}
 
-              <p>{{ event.description }}</p>
+              {% for paragraph in event.description %}
+                <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
+              {% endfor %}
             </div>
 
           </div>
