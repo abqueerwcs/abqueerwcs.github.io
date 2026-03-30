@@ -3,9 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.querySelector(".lightbox-close");
 
-  document.querySelectorAll(".event-image").forEach(img => {
+  const images = document.querySelectorAll(".event-image, .gallery-image");
+
+  images.forEach(img => {
     img.addEventListener("click", () => {
-      lightboxImg.src = img.dataset.full;
+      lightboxImg.src = img.dataset.full || img.src;
       lightbox.classList.remove("hidden");
     });
   });

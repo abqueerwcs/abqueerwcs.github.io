@@ -12,41 +12,44 @@ permalink: /events/
 
   <div class="events-list">
 
-    {% set today = "now" | date("yyyy-MM-dd") %}
-    {% set upcoming = events | selectattr("date", ">=", today) | sort(attribute="date") %}
+    {% set now = "now" | toMillis %}
+    {% set upcoming = events | selectattr("date", "defined") | selectattr("date", "truthy") %}
 
-    {% for event in upcoming %}
+    {% for event in upcoming | sort(attribute="date") %}
+      {% if event.date | toMillis >= now %}
+          <div class="card event-card {% if loop.first %}event-highlight{% endif %}">
 
-      <div class="card event-card {% if loop.first %}event-highlight{% endif %}">
+            {% if event.image %}
+              <img
+                src="{{ event.image }}"
+                alt="{{ event.title }}"
+                class="event-image"
+                data-full="{{ event.image }}"
+              >
+            {% endif %}
 
-        {% if event.image %}
-          <img
-            src="{{ event.image }}"
-            alt="{{ event.title }}"
-            class="event-image"
-            data-full="{{ event.image }}"
-          >
+            <div class="event-info">
+              <h2>{{ event.title }}</h2>
+
+              <p class="event-date">
+                {{ event.date | date("MMMM d, yyyy") }}
+              </p>
+
+              {% if event.time or event.location %}
+                <p class="event-meta">
+                  {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
+                </p>
+              {% endif %}
+
+              <p>{{ event.description }}</p>
+            </div>
+
+          </div>
         {% endif %}
-
-        <div class="event-info">
-          <h2>{{ event.title }}</h2>
-
-          <p class="event-date">
-            {{ event.date | date("MMMM d, yyyy") }}
-          </p>
-
-          {% if event.time or event.location %}
-            <p class="event-meta">
-              {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
-            </p>
-          {% endif %}
-
-          <p>{{ event.description }}</p>
-        </div>
-
-      </div>
-
     {% endfor %}
+
+
+  <h4>View our <u><a href="/events/past/">past events</a></u>!</h4>
 
     <div id="lightbox" class="lightbox hidden">
       <span class="lightbox-close">&times;</span>

@@ -2,21 +2,37 @@ const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
 
-  // Copy static assets
   eleventyConfig.addPassthroughCopy("assets");
 
-  // Add date filter
+  // existing date formatter
   eleventyConfig.addFilter("date", (dateObj, format = "MMMM d, yyyy") => {
     if (!dateObj) return "";
-
-    // Handle string dates (from JSON)
     if (typeof dateObj === "string") {
       return DateTime.fromISO(dateObj).toFormat(format);
     }
-
-    // Handle JS Date objects
     return DateTime.fromJSDate(dateObj).toFormat(format);
   });
+
+  // timestamp filter for comparisons
+  eleventyConfig.addFilter("toMillis", (dateObj) => {
+      const { DateTime } = require("luxon");
+
+      if (!dateObj) return 0;
+
+      if (dateObj === "now") {
+        return DateTime.now().toMillis();
+      }
+
+      if (typeof dateObj === "string") {
+        return DateTime.fromISO(dateObj).toMillis();
+      }
+
+      if (dateObj instanceof Date) {
+        return DateTime.fromJSDate(dateObj).toMillis();
+      }
+
+      return 0;
+    });
 
   return {
     dir: {

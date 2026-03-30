@@ -1,0 +1,62 @@
+---
+layout: base.njk
+title: Past Events
+permalink: /events/past/
+---
+
+<section class="container">
+  <h1>Past Events</h1>
+
+  <div class="events-list">
+
+
+    {% set now = "now" | toMillis %}
+
+    {% for event in events | sort(attribute="date") | reverse %}
+      {% if event.date | toMillis < now %}
+          <div class="card event-card">
+
+            <div class="event-info">
+              <h2>{{ event.title }}</h2>
+
+              <p class="event-date">
+                {{ event.date | date("MMMM d, yyyy") }}
+              </p>
+
+              <p>{{ event.description }}</p>
+            </div>
+
+            {% if event.image %}
+              <img
+                src="{{ event.image }}"
+                alt="{{ event.title }}"
+                class="event-image"
+                data-full="{{ event.image }}"
+              >
+            {% endif %}
+
+            <!-- Gallery -->
+            {% if event.gallery %}
+              <div class="event-gallery">
+                {% for photo in event.gallery %}
+                  <img
+                    src="{{ photo }}"
+                    alt="{{ event.title }} photo"
+                    class="gallery-image"
+                    data-full="{{ photo }}"
+                  >
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          </div>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+    <div id="lightbox" class="lightbox hidden">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-img" src="" alt="Expanded flyer">
+    </div>
+</section>

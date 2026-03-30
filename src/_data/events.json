@@ -1,5 +1,16 @@
 [
   {
+    "title": "Pi Day WCS Dance",
+    "date": "2026-03-14",
+    "description": "Join us for a fun night of West Coast Swing! Beginner lesson included.",
+    "time": "6:30 PM",
+    "location": "Peace Love Space",
+    "image": "/assets/images/events/2026-03-14.png",
+    "gallery": [
+        "/assets/images/events/gallery/2026-03-14/03-14-2026 WCS-2.jpg",
+        "/assets/images/events/gallery/2026-03-14/03-14-2026 WCS-8.jpg"
+    ]
+  },{
     "title": "Earth Day Queer WCS Dance",
     "date": "2026-04-11",
     "description": "Join us for a fun night of West Coast Swing! Beginner lesson included.",
