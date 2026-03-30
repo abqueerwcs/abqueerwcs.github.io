@@ -748,3 +748,29 @@ footer {
     height: 140px;
   }
 }
+
+.event-card {
+  display: grid;
+  gap: 1rem;
+}
+
+/* default: text only (full width) */
+.event-card {
+  grid-template-areas:
+    "info";
+}
+
+/* when image exists */
+.event-card.has-image {
+  grid-template-areas:
+    "image"
+    "info";
+}
+
+@media (min-width: 768px) {
+  .event-card.has-image {
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-areas: "image info";
+    align-items: start;
+  }
+}

@@ -14,7 +14,7 @@ permalink: /events/past/
 
     {% for event in events | sort(attribute="date") | reverse %}
       {% if event.date | toMillis < now %}
-          <div class="card event-card">
+          <div class="card event-card {% if event.image %}has-image{% endif %}">
 
             <div class="event-info">
               <h2>{{ event.title }}</h2>

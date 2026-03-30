@@ -17,7 +17,7 @@ permalink: /events/
 
     {% for event in upcoming | sort(attribute="date") %}
       {% if event.date | toMillis >= now %}
-          <div class="card event-card {% if loop.first %}event-highlight{% endif %}">
+          <div class="card event-card {% if loop.first %}event-highlight{% endif %} {% if event.image %}has-image{% endif %}">
 
             {% if event.image %}
               <img
