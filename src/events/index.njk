@@ -1,13 +1,56 @@
 ---
 layout: base.njk
 title: Events
+permalink: /events/
 ---
 
-<h1>Events</h1>
+<section class="container">
+  <h1>Events</h1>
 
-<p>Check out our <u><a href="/events/calendar/">Google Calendar</a></u>!</p>
-<p>For any parking questions check out the <u><a href="/events/parking/">Parking Map</a></u>.</p>
+  <p>Check out our <u><a href="/events/calendar/">Google Calendar</a></u>!</p>
+  <p>For any parking questions check out the <u><a href="/events/parking/">Parking Map</a></u>.</p>
 
-<div class="card">
-    <p>TODO</p>
-</div>
+  <div class="events-list">
+
+    {% set today = "now" | date("yyyy-MM-dd") %}
+    {% set upcoming = events | selectattr("date", ">=", today) | sort(attribute="date") %}
+
+    {% for event in upcoming %}
+
+      <div class="card event-card {% if loop.first %}event-highlight{% endif %}">
+
+        {% if event.image %}
+          <img
+            src="{{ event.image }}"
+            alt="{{ event.title }}"
+            class="event-image"
+            data-full="{{ event.image }}"
+          >
+        {% endif %}
+
+        <div class="event-info">
+          <h2>{{ event.title }}</h2>
+
+          <p class="event-date">
+            {{ event.date | date("MMMM d, yyyy") }}
+          </p>
+
+          {% if event.time or event.location %}
+            <p class="event-meta">
+              {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
+            </p>
+          {% endif %}
+
+          <p>{{ event.description }}</p>
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+    <div id="lightbox" class="lightbox hidden">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-img" src="" alt="Expanded flyer">
+    </div>
+  </div>
+</section>

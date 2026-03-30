@@ -5,6 +5,7 @@
 ```
 npm init -y
 npm install @11ty/eleventy
+npm install luxon
 ```
 
 ## Generating the Site
