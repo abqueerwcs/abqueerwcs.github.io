@@ -18,6 +18,23 @@
     "image": "/assets/images/board/sarah.jpg"
   },
   {
+    "name": "🍀 Emma Bizzell [She/Her] 🍀",
+    "role": "Committee Member",
+    "bio": [
+        "Emma has had a love for dance since she was 12 years old, which was when she took her first ballet class. After years of being a competitive dancer, she decided to take a break from dance for a few years to focus on other things. In November of 2025, she tried West Coast Swing for the first time, and while she didn't have any experience with partner-style dance, she instantly fell in love with it. Since then, she has continued to get involved in the WCS community.",
+        "Emma is passionate about creating and fostering communities where everyone feels welcome and free to be themselves. She is excited to be able to build community in the dance world through her participation with ABQueer WCS.."
+    ],
+    "image": "/assets/images/board/emma.jpg"
+  },
+  {
+    "name": "🌸 Morgan Cole [She/They] 🌸",
+    "role": "Committee Member",
+    "bio": [
+        "Morgan took a variety of dance classes while growing up, but it always took backstage to making others dance...until she encountered West Coast Swing at an ABQueer WCS social in December 2025 and immediately fell in love with it. Since then they've been going to as many WCS events as possible and reveling in every step, as well as the vibrant social landscape they've found through it. Morgan is excited to give back to this community that has made her feel so embraced and to share the magic of West Coast Swing so that others can find the same experience of learning and connection in a welcoming space."
+    ],
+    "image": "/assets/images/board/morgan.png"
+  },
+  {
     "name": "🦒 Dalton Cole [He/Him] 🦒",
     "role": "Committee Member",
     "bio": [
