@@ -771,6 +771,14 @@ footer {
   .event-card.has-image {
     grid-template-columns: 1.0fr 1.0fr;
     grid-template-areas: "image info";
-    align-items: start;
   }
+
+  .event-image {
+    align-self: center;
+  }
+
+  .event-info {
+    align-self: start;
+  }
+}
 }
