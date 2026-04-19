@@ -781,4 +781,67 @@ footer {
     align-self: start;
   }
 }
+
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.hero h2 {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.cta-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.schedule li,
+.pricing li {
+  margin-bottom: 0.4rem;
+}
+
+.hero {
+  text-align: center;
+}
+
+.event-logo {
+  display: block;
+  margin: 0 auto 1rem auto;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* 👈 mobile friendly */
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.schedule-table th {
+  font-weight: 600;
+  color: var(--accent, #ccc);
+}
+
+.schedule-table tr:hover {
+  background: rgba(255,255,255,0.05);
 }
