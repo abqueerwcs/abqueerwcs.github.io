@@ -889,3 +889,139 @@ footer {
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #555;
 }
+
+/* container */
+.dropdown {
+  position: relative;
+}
+
+/* button reset */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card-bg, #1a1a1a);
+  border-radius: var(--radius);
+  padding: 0.5rem 0;
+  min-width: 200px;
+
+  display: none;
+  flex-direction: column;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
+/* items */
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* desktop hover */
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+.dropdown-menu.open {
+  display: flex;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-item,
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+}
+
+/* ensure no gap */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* sits directly under button */
+  left: 0;
+
+  display: none;
+  flex-direction: column;
+
+  background: var(--card-bg, #1a1a1a);
+  border-radius: var(--radius);
+  min-width: 200px;
+  padding: 0.5rem 0;
+
+  z-index: 1000;
+}
+
+/* 👈 THIS is the key */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
