@@ -845,3 +845,47 @@ footer {
 .schedule-table tr:hover {
   background: rgba(255,255,255,0.05);
 }
+
+.instructor-row td {
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-bottom: 2px solid #555;
+  padding-top: 0;
+}
+
+.chill-zone {
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 500;
+  background: rgba(255,255,255,0.05);
+}
+
+.schedule-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+.schedule-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cta-buttons {
+  position: sticky;
+  bottom: 1rem;
+}
+
+.schedule-table th {
+  vertical-align: bottom;
+}
+
+.instructor {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.schedule-table th {
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #555;
+}
