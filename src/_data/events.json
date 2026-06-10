@@ -59,7 +59,8 @@
         "The theme is <b>Drag</b><!"
     ],
     "time": "6:30 PM",
-    "location": "Peace Love Space"
+    "location": "Peace Love Space",
+    "image": "/assets/images/events/2026-07-11.png"
   },{
     "title": "August Queer WCS Social Dance",
     "date": "2026-08-08",
@@ -69,7 +70,8 @@
         "The theme is <b>Summer Breeze</b>!"
     ],
     "time": "6:30 PM",
-    "location": "Peace Love Space"
+    "location": "Peace Love Space",
+    "image": "/assets/images/events/2026-08-08.png"
   },{
     "title": "September Queer WCS Social Dance",
     "date": "2026-09-12",
@@ -79,6 +81,7 @@
         "The theme is <b>Swing Into Fall</b>!"
     ],
     "time": "6:30 PM",
-    "location": "Peace Love Space"
+    "location": "Peace Love Space",
+    "image": "/assets/images/events/2026-09-12.png"
   }
 ]
