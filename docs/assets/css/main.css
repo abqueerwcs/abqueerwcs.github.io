@@ -86,7 +86,6 @@ p {
   color: var(--muted);
 }
 
-/* gradient text */
 .gradient {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
@@ -107,15 +106,14 @@ p {
   align-items: center;
 }
 
-/* hamburger */
 .menu-toggle {
   background: none;
   border: none;
   font-size: 1.6rem;
   color: var(--text);
+  cursor: pointer;
 }
 
-/* nav hidden on mobile */
 .nav {
   display: none;
   flex-direction: column;
@@ -127,29 +125,81 @@ p {
   display: flex;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.site-logo {
+  height: 40px;
+  width: auto;
 }
 
-.hero p {
-  max-width: 500px;
+.logo-link {
+  display: inline-block;
+}
+
+/* =========================
+   NAVIGATION DROPDOWN
+========================= */
+
+.nav-item,
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  background: var(--card);
+  border-radius: var(--radius);
+  min-width: 200px;
+  padding: 0.5rem 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.dropdown-menu.open {
+  display: flex;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* =========================
    BUTTONS
 ========================= */
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
 
 .btn {
   display: inline-block;
@@ -176,7 +226,7 @@ p {
   background: var(--card);
   padding: 1.5rem;
   border-radius: var(--radius);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* =========================
@@ -190,23 +240,6 @@ p {
 }
 
 /* =========================
-   BOARD MEMBERS
-========================= */
-
-.member img {
-  border-radius: var(--radius);
-  margin-bottom: 0.5rem;
-}
-
-/* =========================
-   FAQ (DETAILS)
-========================= */
-
-details {
-  cursor: pointer;
-}
-
-/* =========================
    FORMS
 ========================= */
 
@@ -216,6 +249,33 @@ input {
   border-radius: var(--radius);
   border: none;
   margin-bottom: 0.5rem;
+}
+
+.mailchimp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-message {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.form-message.success {
+  color: #4ade80;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-message.error {
+  color: #f87171;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
@@ -235,75 +295,8 @@ footer {
 }
 
 /* =========================
-   TABLET BREAKPOINT
+   SOCIAL LINKS
 ========================= */
-
-@media (min-width: 600px) {
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .buttons {
-    flex-direction: row;
-  }
-}
-
-/* =========================
-   DESKTOP BREAKPOINT
-========================= */
-
-@media (min-width: 768px) {
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  main {
-    padding: 2rem;
-  }
-
-  .hero {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-
-  .carousel img {
-    height: 400px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* =========================
-   LARGE DESKTOP
-========================= */
-
-@media (min-width: 1024px) {
-
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.parking-map {
-  width: 100%;
-  border-radius: var(--radius);
-}
 
 .social-links {
   display: flex;
@@ -319,75 +312,36 @@ footer {
 
 .social-links a:hover .social-icon {
   transform: scale(1.1);
-  filter: brightness(0) saturate(100%) invert(70%);
   filter: drop-shadow(0 0 6px var(--accent));
 }
 
-.site-logo {
-  height: 40px;         /* mobile-first default */
-  width: auto;
+/* =========================
+   CAROUSEL
+========================= */
+
+.carousel {
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
 }
 
-@media (min-width: 768px) {
-  .site-logo {
-    height: 60px;
-  }
-}
-
-.logo-link {
-  display: inline-block;
-}
-
-.mailchimp-form {
+.carousel-track {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  transition: transform 0.6s ease;
+  height: 100%;
 }
 
-/* tablet+ layout */
-@media (min-width: 600px) {
-  .mailchimp-form {
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-
-  .mailchimp-form input {
-    flex: 1 1 30%;
-    min-width: 140px;
-  }
-
-  .mailchimp-form input[name="EMAIL"] {
-    flex: 2 1 40%;
-  }
-
-  .mailchimp-form button {
-    flex: 1 1 100%;
-  }
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  object-position: center top;
 }
 
-.form-message {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.form-message.success {
-  color: #4ade80; /* green */
-  animation: fadeIn 0.3s ease;
-}
-
-.form-message.error {
-  color: #f87171; /* red */
-}
-
-.form-message.success {
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* =========================
+   BOARD MEMBERS
+========================= */
 
 .board-list {
   display: flex;
@@ -396,12 +350,25 @@ footer {
 }
 
 .board-member {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
+  grid-template-areas:
+    "photo"
+    "info";
+  transition: transform 0.2s ease;
 }
 
-/* image */
+.board-member:hover {
+  transform: translateY(-2px);
+}
+
+.member-photo-wrapper {
+  grid-area: photo;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .member-photo {
   width: 100%;
   border-radius: var(--radius);
@@ -411,7 +378,18 @@ footer {
   margin: 0 auto;
 }
 
-/* text */
+.photo-credit {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.member-info {
+  grid-area: info;
+}
+
 .member-info h2 {
   margin-bottom: 0.25rem;
 }
@@ -427,96 +405,11 @@ footer {
 }
 
 /* =========================
-   DESKTOP LAYOUT
+   FAQ
 ========================= */
 
-@media (min-width: 768px) {
-  .board-member {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .member-photo {
-    width: 200px;
-    height: 200px;
-    flex-shrink: 0;
-  }
-
-  .member-info {
-    flex: 1;
-  }
-}
-
-.board-member:hover {
-  transform: translateY(-2px);
-  transition: transform 0.2s ease;
-}
-
-.member-photo-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* credit text */
-.photo-credit {
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-top: 0.25rem;
-  text-align: center;
-  opacity: 0.5;
-}
-
-@media (min-width: 768px) {
-  .member-photo-wrapper {
-    align-items: flex-start;
-  }
-
-  .photo-credit {
-    text-align: left;
-  }
-}
-
-.board-member {
-  display: grid;
-  gap: 0.75rem;
-}
-
-/* Assign areas */
-.member-info h2 {
-  grid-area: name;
-}
-
-.member-role {
-  grid-area: role;
-}
-
-.member-photo-wrapper {
-  grid-area: photo;
-}
-
-.member-bio {
-  grid-area: bio;
-}
-
-/* Mobile layout */
-.board-member {
-  grid-template-areas:
-    "name"
-    "role"
-    "photo"
-    "bio";
-}
-
-@media (min-width: 768px) {
-  .board-member {
-    grid-template-columns: 200px 1fr;
-    grid-template-areas:
-      "photo name"
-      "photo role"
-      "photo bio";
-    align-items: center;
-  }
+details {
+  cursor: pointer;
 }
 
 .faq-list {
@@ -525,16 +418,14 @@ footer {
   gap: 1rem;
 }
 
-/* each FAQ card */
 .faq-item {
   background: var(--card);
   border-radius: var(--radius);
   padding: 1rem 1.2rem;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* summary (question row) */
 .faq-item summary {
   list-style: none;
   font-weight: 600;
@@ -543,29 +434,23 @@ footer {
   align-items: center;
 }
 
-/* remove default arrow */
 .faq-item summary::-webkit-details-marker {
   display: none;
 }
 
-/* icon */
 .faq-icon {
   transition: transform 0.2s ease;
 }
 
-/* rotate icon when open */
-.faq-item[open] .faq-icon {
-  transform: rotate(45deg);
-}
-
-/* answer text */
-.faq-item p, .faq-item li, .faq-item ul {
-  margin-top: 0.75rem;
-  color: var(--muted);
-}
-
 .faq-item[open] .faq-icon {
   transform: rotate(180deg);
+}
+
+.faq-item p,
+.faq-item li,
+.faq-item ul {
+  margin-top: 0.75rem;
+  color: var(--muted);
 }
 
 .faq-links {
@@ -586,31 +471,9 @@ footer {
   opacity: 0.8;
 }
 
-.carousel {
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s ease;
-  height: 100%;
-}
-
-.carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-  object-position: center top;
-
-}
-
-.carousel {
-  overflow: hidden;
-  border-radius: var(--radius);
-  aspect-ratio: 16 / 9; /* consistent cropping */
-}
+/* =========================
+   EVENTS
+========================= */
 
 .events-list {
   display: flex;
@@ -618,7 +481,6 @@ footer {
   gap: 1.5rem;
 }
 
-/* text */
 .event-date {
   font-size: 0.9rem;
   color: var(--accent);
@@ -626,68 +488,32 @@ footer {
 }
 
 .event-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
+  grid-template-areas: "info";
+}
+
+.event-card.has-image {
+  grid-template-areas:
+    "image"
+    "info";
 }
 
 .event-image {
+  grid-area: image;
   width: 100%;
   height: auto;
   max-height: 500px;
   object-fit: contain;
 }
 
-@media (min-width: 768px) {
-  .event-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 👈 equal space */
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .event-image {
-    width: 100%;
-    height: auto;
-    max-height: 700px; /* 👈 prevents absurdly tall flyers */
-    object-fit: contain;
-  }
-
-  .event-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
-.event-card {
-  display: grid;
-  gap: 1rem;
-}
-
-/* assign areas */
-.event-image {
-  grid-area: image;
-}
-
 .event-info {
   grid-area: info;
 }
 
-/* 📱 Mobile layout (info first, image after) */
-.event-card {
-  grid-template-areas:
-    "info"
-    "image";
-}
-
-@media (min-width: 768px) {
-  .event-card {
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-areas: "image info";
-    align-items: start;
-  }
-}
+/* =========================
+   LIGHTBOX
+========================= */
 
 .lightbox {
   position: fixed;
@@ -695,7 +521,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -721,7 +547,6 @@ footer {
   cursor: pointer;
 }
 
-/* gallery grid */
 .event-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -729,7 +554,6 @@ footer {
   margin-top: 0.5rem;
 }
 
-/* images */
 .gallery-image {
   width: 100%;
   height: 120px;
@@ -738,49 +562,18 @@ footer {
   cursor: zoom-in;
 }
 
-/* desktop */
-@media (min-width: 768px) {
-  .event-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* =========================
+   PARKING MAP
+========================= */
 
-  .gallery-image {
-    height: 140px;
-  }
+.parking-map {
+  width: 100%;
+  border-radius: var(--radius);
 }
 
-.event-card {
-  display: grid;
-  gap: 1rem;
-}
-
-/* default: text only (full width) */
-.event-card {
-  grid-template-areas:
-    "info";
-}
-
-/* when image exists */
-.event-card.has-image {
-  grid-template-areas:
-    "image"
-    "info";
-}
-
-@media (min-width: 768px) {
-  .event-card.has-image {
-    grid-template-columns: 1.0fr 1.0fr;
-    grid-template-areas: "image info";
-  }
-
-  .event-image {
-    align-self: center;
-  }
-
-  .event-info {
-    align-self: start;
-  }
-}
+/* =========================
+   HERO (EVENT PAGES)
+========================= */
 
 .hero {
   text-align: center;
@@ -795,23 +588,6 @@ footer {
   color: var(--muted);
 }
 
-.cta-buttons {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.schedule li,
-.pricing li {
-  margin-bottom: 0.4rem;
-}
-
-.hero {
-  text-align: center;
-}
-
 .event-logo {
   display: block;
   margin: 0 auto 1rem auto;
@@ -820,8 +596,22 @@ footer {
   height: auto;
 }
 
+.cta-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: sticky;
+  bottom: 1rem;
+}
+
+/* =========================
+   SCHEDULE TABLE
+========================= */
+
 .table-wrapper {
-  overflow-x: auto; /* 👈 mobile friendly */
+  overflow-x: auto;
 }
 
 .schedule-table {
@@ -839,11 +629,23 @@ footer {
 
 .schedule-table th {
   font-weight: 600;
-  color: var(--accent, #ccc);
+  color: var(--accent);
+  vertical-align: bottom;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #555;
 }
 
 .schedule-table tr:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.schedule-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.schedule-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .instructor-row td {
@@ -857,25 +659,7 @@ footer {
   vertical-align: middle;
   text-align: center;
   font-weight: 500;
-  background: rgba(255,255,255,0.05);
-}
-
-.schedule-table tr:nth-child(even) {
-  background: rgba(255,255,255,0.03);
-}
-
-.schedule-table td:first-child {
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.cta-buttons {
-  position: sticky;
-  bottom: 1rem;
-}
-
-.schedule-table th {
-  vertical-align: bottom;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .instructor {
@@ -885,143 +669,122 @@ footer {
   margin-top: 0.25rem;
 }
 
-.schedule-table th {
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #555;
+/* =========================
+   TABLET BREAKPOINT (600px)
+========================= */
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mailchimp-form {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .mailchimp-form input {
+    flex: 1 1 30%;
+    min-width: 140px;
+  }
+
+  .mailchimp-form input[name="EMAIL"] {
+    flex: 2 1 40%;
+  }
+
+  .mailchimp-form button {
+    flex: 1 1 100%;
+  }
 }
 
-/* container */
-.dropdown {
-  position: relative;
-}
+/* =========================
+   DESKTOP BREAKPOINT (768px)
+========================= */
 
-/* button reset */
-.dropdown-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-
-/* menu */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--card-bg, #1a1a1a);
-  border-radius: var(--radius);
-  padding: 0.5rem 0;
-  min-width: 200px;
-
-  display: none;
-  flex-direction: column;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  z-index: 1000;
-}
-
-/* items */
-.dropdown-menu li {
-  list-style: none;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-}
-
-.dropdown-menu a:hover {
-  background: rgba(255,255,255,0.08);
-}
-
-/* desktop hover */
 @media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .site-logo {
+    height: 60px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .carousel img {
+    height: 400px;
+  }
+
+  .board-member {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: "photo info";
+    align-items: start;
+  }
+
+  .member-photo {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+  }
+
+  .member-photo-wrapper {
+    align-items: flex-start;
+  }
+
+  .photo-credit {
+    text-align: left;
+  }
+
+  .event-card.has-image {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image info";
+  }
+
+  .event-image {
+    max-height: 700px;
+    align-self: center;
+  }
+
+  .event-info {
+    align-self: start;
+  }
+
+  .event-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-image {
+    height: 140px;
+  }
+
   .dropdown:hover .dropdown-menu {
     display: flex;
   }
 }
 
-.dropdown-menu.open {
-  display: flex;
-}
+/* =========================
+   LARGE DESKTOP (1024px)
+========================= */
 
-.dropdown-menu {
-  opacity: 0;
-  transform: translateY(5px);
-  transition: all 0.2s ease;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown-menu.open {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown-menu {
-  opacity: 0;
-  transform: translateY(5px);
-  transition: all 0.2s ease;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown-menu.open {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nav-item,
-.dropdown-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown {
-  position: relative;
-}
-
-/* ensure no gap */
-.dropdown-menu {
-  position: absolute;
-  top: 100%; /* sits directly under button */
-  left: 0;
-
-  display: none;
-  flex-direction: column;
-
-  background: var(--card-bg, #1a1a1a);
-  border-radius: var(--radius);
-  min-width: 200px;
-  padding: 0.5rem 0;
-
-  z-index: 1000;
-}
-
-/* 👈 THIS is the key */
-.dropdown:hover .dropdown-menu {
-  display: flex;
-}
-
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 10px;
-}
-
-.dropdown-menu {
-  opacity: 0;
-  transform: translateY(5px);
-  pointer-events: none;
-  transition: all 0.2s ease;
-}
-
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

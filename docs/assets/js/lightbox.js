@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.querySelector(".lightbox-close");
 
+  if (!lightbox || !lightboxImg || !closeBtn) return;
+
   const images = document.querySelectorAll(".event-image, .gallery-image");
 
   images.forEach(img => {
