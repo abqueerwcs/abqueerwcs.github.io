@@ -11,13 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const total = slides.length;
   let index = 0;
   let timer;
+  let userInteracted = false;
 
   // Build dots dynamically from slide count
   slides.forEach((_, i) => {
     const dot = document.createElement("button");
     dot.className = "carousel-dot";
     dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-    dot.addEventListener("click", () => { goTo(i); resetTimer(); });
+    dot.addEventListener("click", () => { goTo(i); stopAutoAdvance(); });
     dotsContainer.appendChild(dot);
   });
 
@@ -37,10 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function prev() { goTo(index - 1); }
 
   function startTimer() { timer = setInterval(next, 4000); }
-  function resetTimer() { clearInterval(timer); startTimer(); }
 
-  prevBtn.addEventListener("click", () => { prev(); resetTimer(); });
-  nextBtn.addEventListener("click", () => { next(); resetTimer(); });
+  function stopAutoAdvance() {
+    clearInterval(timer);
+    userInteracted = true;
+  }
+
+  prevBtn.addEventListener("click", () => { prev(); stopAutoAdvance(); });
+  nextBtn.addEventListener("click", () => { next(); stopAutoAdvance(); });
 
   // Touch swipe support
   let touchStartX = 0;
@@ -51,13 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
       diff > 0 ? next() : prev();
-      resetTimer();
+      stopAutoAdvance();
     }
   });
 
-  // Pause auto-advance on hover
+  // Pause on hover; only resume if user hasn't manually interacted
   carousel.addEventListener("mouseenter", () => clearInterval(timer));
-  carousel.addEventListener("mouseleave", startTimer);
+  carousel.addEventListener("mouseleave", () => {
+    if (!userInteracted) startTimer();
+  });
 
   // Keep position correct after window resize
   window.addEventListener("resize", updateCarousel);
