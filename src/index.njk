@@ -6,13 +6,17 @@ title: Home
 <section class="container">
 
   <!-- HERO / CAROUSEL -->
-  <!-- TODO: Improve carousel -->
-  <div class="carousel card">
+  <div class="carousel">
     <div class="carousel-track" id="carousel-track">
       {% for item in carousel %}
-        <img src="{{ item }}">
+        <img src="{{ item }}" alt="Dance photo {{ loop.index }}">
       {% endfor %}
     </div>
+
+    <button class="carousel-btn carousel-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="carousel-btn carousel-next" aria-label="Next photo">&#8250;</button>
+
+    <div class="carousel-dots" id="carousel-dots"></div>
   </div>
 
   <!-- WHY CHOOSE US -->
