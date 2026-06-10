@@ -50,5 +50,35 @@
     "time": "1:30 PM",
     "location": "Peace Love Space",
     "image": "/assets/images/events/2026-06-27.png"
+  },{
+    "title": "July Queer WCS Social Dance",
+    "date": "2026-07-11",
+    "description": [
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is <b>Drag</b><!"
+    ],
+    "time": "6:30 PM",
+    "location": "Peace Love Space"
+  },{
+    "title": "August Queer WCS Social Dance",
+    "date": "2026-08-08",
+    "description": [
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is <b>Summer Breeze</b>!"
+    ],
+    "time": "6:30 PM",
+    "location": "Peace Love Space"
+  },{
+    "title": "September Queer WCS Social Dance",
+    "date": "2026-09-12",
+    "description": [
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes.",
+        "The theme is <b>Swing Into Fall</b>!"
+    ],
+    "time": "6:30 PM",
+    "location": "Peace Love Space"
   }
 ]
