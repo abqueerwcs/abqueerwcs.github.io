@@ -618,6 +618,29 @@ details {
 }
 
 /* =========================
+   PAGINATION
+========================= */
+
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.pagination-disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* =========================
    PARKING MAP
 ========================= */
 

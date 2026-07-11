@@ -1,7 +1,11 @@
 ---
 layout: base.njk
 title: Past Events
-permalink: /events/past/
+pagination:
+  data: pastEvents
+  size: 5
+  alias: pageEvents
+permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
 <section class="container">
@@ -9,56 +13,68 @@ permalink: /events/past/
 
   <div class="events-list">
 
+    {% for event in pageEvents %}
+      <div class="card event-card {% if event.image %}has-image{% endif %}">
 
-    {% set now = "now" | toMillis %}
+        <div class="event-info">
+          <h2>{{ event.title }}</h2>
 
-    {% for event in events | sort(attribute="date") | reverse %}
-      {% if event.date | toMillis < now %}
-          <div class="card event-card {% if event.image %}has-image{% endif %}">
+          <p class="event-date">
+            {{ event.date | date("MMMM d, yyyy") }}
+          </p>
 
-            <div class="event-info">
-              <h2>{{ event.title }}</h2>
+          {% for paragraph in event.description %}
+            <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
+          {% endfor %}
+        </div>
 
-              <p class="event-date">
-                {{ event.date | date("MMMM d, yyyy") }}
-              </p>
+        {% if event.image %}
+          <img
+            src="{{ event.image }}"
+            alt="{{ event.title }}"
+            class="event-image"
+            data-full="{{ event.image }}"
+          >
+        {% endif %}
 
-              {% for paragraph in event.description %}
-                <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
-              {% endfor %}
-            </div>
-
-            {% if event.image %}
+        {% if event.gallery %}
+          <div class="event-gallery">
+            {% for photo in event.gallery %}
               <img
-                src="{{ event.image }}"
-                alt="{{ event.title }}"
-                class="event-image"
-                data-full="{{ event.image }}"
+                src="{{ photo }}"
+                alt="{{ event.title }} photo"
+                class="gallery-image"
+                data-full="{{ photo }}"
               >
-            {% endif %}
-
-            <!-- Gallery -->
-            {% if event.gallery %}
-              <div class="event-gallery">
-                {% for photo in event.gallery %}
-                  <img
-                    src="{{ photo }}"
-                    alt="{{ event.title }} photo"
-                    class="gallery-image"
-                    data-full="{{ photo }}"
-                  >
-                {% endfor %}
-              </div>
-            {% endif %}
-
+            {% endfor %}
           </div>
+        {% endif %}
 
-      {% endif %}
+      </div>
     {% endfor %}
 
   </div>
-    <div id="lightbox" class="lightbox hidden">
-      <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" src="" alt="Expanded flyer">
-    </div>
+
+  {% if pagination.pages.length > 1 %}
+    <nav class="pagination-nav" aria-label="Past events pages">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="btn secondary">← Previous</a>
+      {% else %}
+        <span class="btn secondary pagination-disabled">← Previous</span>
+      {% endif %}
+
+      <span class="pagination-info">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</span>
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="btn secondary">Next →</a>
+      {% else %}
+        <span class="btn secondary pagination-disabled">Next →</span>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded photo">
+  </div>
 </section>
