@@ -1,0 +1,41 @@
+name: Build Site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Run nightly at midnight Mountain Time (MDT = UTC-6, MST = UTC-7)
+    # 7 AM UTC covers both MDT and MST midnight
+    - cron: '0 7 * * *'
+  workflow_dispatch: # allow manual trigger from the GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit rebuilt docs/ if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: rebuild site [skip ci]"
+          git push
