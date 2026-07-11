@@ -20,7 +20,7 @@ module.exports = function (eleventyConfig) {
       if (!dateObj) return 0;
 
       if (dateObj === "now") {
-        return DateTime.now().setZone("America/Denver").startOf("day").toMillis();
+        return DateTime.now().setZone("America/Denver").startOf("day").minus({ days: 2 }).toMillis();
       }
 
       if (typeof dateObj === "string") {
