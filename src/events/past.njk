@@ -7,52 +7,15 @@ pagination:
   alias: pageEvents
 permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
+{% from "event-card.njk" import render as eventCard %}
 
 <section class="container">
   <h1>Past Events</h1>
 
   <div class="events-list">
-
     {% for event in pageEvents %}
-      <div class="card event-card {% if event.image %}has-image{% endif %}">
-
-        <div class="event-info">
-          <h2>{{ event.title }}</h2>
-
-          <p class="event-date">
-            {{ event.date | date("MMMM d, yyyy") }}
-          </p>
-
-          {% for paragraph in event.description %}
-            <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
-          {% endfor %}
-        </div>
-
-        {% if event.image %}
-          <img
-            src="{{ event.image }}"
-            alt="{{ event.title }}"
-            class="event-image"
-            data-full="{{ event.image }}"
-          >
-        {% endif %}
-
-        {% if event.gallery %}
-          <div class="event-gallery">
-            {% for photo in event.gallery %}
-              <img
-                src="{{ photo }}"
-                alt="{{ event.title }} photo"
-                class="gallery-image"
-                data-full="{{ photo }}"
-              >
-            {% endfor %}
-          </div>
-        {% endif %}
-
-      </div>
+      {{ eventCard(event, showGallery=true) }}
     {% endfor %}
-
   </div>
 
   {% if pagination.pages.length > 1 %}
@@ -73,8 +36,5 @@ permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pa
     </nav>
   {% endif %}
 
-  <div id="lightbox" class="lightbox hidden">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Expanded photo">
-  </div>
+  {% include "lightbox.njk" %}
 </section>

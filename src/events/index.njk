@@ -3,6 +3,7 @@ layout: base.njk
 title: Events
 permalink: /events/
 ---
+{% from "event-card.njk" import render as eventCard %}
 
 <section class="container">
   <h1>Events</h1>
@@ -11,45 +12,12 @@ permalink: /events/
   <p>For any parking questions check out the <u><a href="/events/parking/">Parking Map</a></u> for the Peace Love Space.</p>
 
   <div class="events-list">
-
     {% for event in upcomingEvents %}
-      <div class="card event-card {% if loop.first %}event-highlight{% endif %} {% if event.image %}has-image{% endif %}">
-
-        {% if event.image %}
-          <img
-            src="{{ event.image }}"
-            alt="{{ event.title }}"
-            class="event-image"
-            data-full="{{ event.image }}"
-          >
-        {% endif %}
-
-        <div class="event-info">
-          <h2>{{ event.title }}</h2>
-
-          <p class="event-date">
-            {{ event.date | date("MMMM d, yyyy") }}
-          </p>
-
-          {% if event.time or event.location %}
-            <p class="event-meta">
-              {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
-            </p>
-          {% endif %}
-
-          {% for paragraph in event.description %}
-            <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
-          {% endfor %}
-        </div>
-
-      </div>
+      {{ eventCard(event, highlight=loop.first, showMeta=true) }}
     {% endfor %}
 
     <h4>View our <u><a href="/events/past/">past events</a></u>!</h4>
-
-    <div id="lightbox" class="lightbox hidden">
-      <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" src="" alt="Expanded flyer">
-    </div>
   </div>
+
+  {% include "lightbox.njk" %}
 </section>

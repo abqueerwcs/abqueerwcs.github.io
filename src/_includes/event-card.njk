@@ -1,0 +1,43 @@
+{% macro render(event, highlight=false, showMeta=false, showGallery=false) %}
+<div class="card event-card {% if highlight %}event-highlight{% endif %} {% if event.image %}has-image{% endif %}">
+
+  {% if event.image %}
+    <img
+      src="{{ event.image }}"
+      alt="{{ event.title }}"
+      class="event-image"
+      data-full="{{ event.image }}"
+    >
+  {% endif %}
+
+  <div class="event-info">
+    <h2>{{ event.title }}</h2>
+
+    <p class="event-date">{{ event.date | date("MMMM d, yyyy") }}</p>
+
+    {% if showMeta and (event.time or event.location) %}
+      <p class="event-meta">
+        {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
+      </p>
+    {% endif %}
+
+    {% for paragraph in event.description %}
+      <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
+    {% endfor %}
+  </div>
+
+  {% if showGallery and event.gallery %}
+    <div class="event-gallery">
+      {% for photo in event.gallery %}
+        <img
+          src="{{ photo }}"
+          alt="{{ event.title }} photo"
+          class="gallery-image"
+          data-full="{{ photo }}"
+        >
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
+{% endmacro %}
