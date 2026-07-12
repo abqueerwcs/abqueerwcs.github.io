@@ -4,7 +4,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("assets");
 
-  // existing date formatter
   eleventyConfig.addFilter("date", (dateObj, format = "MMMM d, yyyy") => {
     if (!dateObj) return "";
     if (typeof dateObj === "string") {
@@ -13,26 +12,19 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat(format);
   });
 
-  // timestamp filter for comparisons
   eleventyConfig.addFilter("toMillis", (dateObj) => {
-      const { DateTime } = require("luxon");
-
-      if (!dateObj) return 0;
-
-      if (dateObj === "now") {
-        return DateTime.now().setZone("America/Denver").startOf("day").minus({ days: 2 }).toMillis();
-      }
-
-      if (typeof dateObj === "string") {
-        return DateTime.fromISO(dateObj).toMillis();
-      }
-
-      if (dateObj instanceof Date) {
-        return DateTime.fromJSDate(dateObj).toMillis();
-      }
-
-      return 0;
-    });
+    if (!dateObj) return 0;
+    if (dateObj === "now") {
+      return DateTime.now().setZone("America/Denver").startOf("day").toMillis();
+    }
+    if (typeof dateObj === "string") {
+      return DateTime.fromISO(dateObj).toMillis();
+    }
+    if (dateObj instanceof Date) {
+      return DateTime.fromJSDate(dateObj).toMillis();
+    }
+    return 0;
+  });
 
   return {
     dir: {

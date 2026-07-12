@@ -5,6 +5,6 @@ const getCutoff = require("./eventCutoff.js");
 module.exports = function () {
   const cutoff = getCutoff();
   return events
-    .filter(e => DateTime.fromISO(e.date, { zone: "America/Denver" }).toMillis() < cutoff)
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .filter(e => DateTime.fromISO(e.date, { zone: "America/Denver" }).toMillis() >= cutoff)
+    .sort((a, b) => a.date.localeCompare(b.date));
 };

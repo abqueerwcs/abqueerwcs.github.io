@@ -12,46 +12,40 @@ permalink: /events/
 
   <div class="events-list">
 
-    {% set now = "now" | toMillis %}
-    {% set upcoming = events | selectattr("date", "defined") | selectattr("date", "truthy") %}
+    {% for event in upcomingEvents %}
+      <div class="card event-card {% if loop.first %}event-highlight{% endif %} {% if event.image %}has-image{% endif %}">
 
-    {% for event in upcoming | sort(attribute="date") %}
-      {% if event.date | toMillis >= now %}
-          <div class="card event-card {% if loop.first %}event-highlight{% endif %} {% if event.image %}has-image{% endif %}">
-
-            {% if event.image %}
-              <img
-                src="{{ event.image }}"
-                alt="{{ event.title }}"
-                class="event-image"
-                data-full="{{ event.image }}"
-              >
-            {% endif %}
-
-            <div class="event-info">
-              <h2>{{ event.title }}</h2>
-
-              <p class="event-date">
-                {{ event.date | date("MMMM d, yyyy") }}
-              </p>
-
-              {% if event.time or event.location %}
-                <p class="event-meta">
-                  {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
-                </p>
-              {% endif %}
-
-              {% for paragraph in event.description %}
-                <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
-              {% endfor %}
-            </div>
-
-          </div>
+        {% if event.image %}
+          <img
+            src="{{ event.image }}"
+            alt="{{ event.title }}"
+            class="event-image"
+            data-full="{{ event.image }}"
+          >
         {% endif %}
+
+        <div class="event-info">
+          <h2>{{ event.title }}</h2>
+
+          <p class="event-date">
+            {{ event.date | date("MMMM d, yyyy") }}
+          </p>
+
+          {% if event.time or event.location %}
+            <p class="event-meta">
+              {{ event.time }}{% if event.time and event.location %} • {% endif %}{{ event.location }}
+            </p>
+          {% endif %}
+
+          {% for paragraph in event.description %}
+            <p style="white-space: pre-wrap;">{{ paragraph | safe }}</p>
+          {% endfor %}
+        </div>
+
+      </div>
     {% endfor %}
 
-
-  <h4>View our <u><a href="/events/past/">past events</a></u>!</h4>
+    <h4>View our <u><a href="/events/past/">past events</a></u>!</h4>
 
     <div id="lightbox" class="lightbox hidden">
       <span class="lightbox-close">&times;</span>

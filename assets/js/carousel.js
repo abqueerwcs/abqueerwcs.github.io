@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function next() { goTo(index + 1); }
   function prev() { goTo(index - 1); }
 
-  function startTimer() { timer = setInterval(next, 4000); }
+  function startTimer() { clearInterval(timer); timer = setInterval(next, 4000); }
 
   function stopAutoAdvance() {
     clearInterval(timer);
