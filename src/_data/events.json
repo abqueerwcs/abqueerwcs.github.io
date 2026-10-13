@@ -81,7 +81,17 @@
         "The theme is <b>ABQueer Anniversary</b>!"
     ],
     "time": "6:30 PM",
-    "location": "Peace Love Space",
+    "location": "Rhythm Haven Dance Studio",
     "image": "/assets/images/events/2026-10-10.png"
+  },{
+    "title": "November Queer WCS Social Dance",
+    "date": "2026-11-14",
+    "description": [
+        "A beginner lesson targeted toward folks with little to no dance experience.",
+        "A social dance with music targeted toward folks who completed the beginner lesson. The music will feature queer artists and/or queer themes."
+    ],
+    "time": "6:30 PM",
+    "location": "Rhythm Haven Dance Studio",
+    "image": "/assets/images/events/2026-11-14.png"
   }
 ]
